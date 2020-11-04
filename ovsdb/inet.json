@@ -1,0 +1,24 @@
+[
+    "Open_vSwitch",
+    {
+        "op":"insert",
+        "table":"Wifi_Inet_Config",
+        "row": {
+            "if_name": "br-home",
+            "ip_assign_scheme": "static",
+            "if_type": "bridge",
+            "enabled": true
+       }
+    },
+    {
+        "op":"insert",
+        "table":"Wifi_Inet_Config",
+        "row": {
+            "if_name": "br-wan",
+            "ip_assign_scheme": "static",
+            "if_type": "bridge",
+            "enabled": true
+       }
+    }
+]
+
