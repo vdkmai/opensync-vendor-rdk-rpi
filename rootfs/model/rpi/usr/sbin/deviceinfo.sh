@@ -17,12 +17,10 @@
 #See the License for the specific language governing permissions and
 #limitations under the License.
 
-# TODO: Implement missing options
-
 case "$1" in
 
     -mo)
-        echo "Raspberry Pi"
+        echo "RTROM01-2G"
         ;;
     -sn)
         echo "1234567890"
@@ -31,7 +29,7 @@ case "$1" in
         echo "rdk-yocto-rpi"
         ;;
     -cmac)
-	echo $(cat /sys/class/net/lan0/address)
+	echo $(cat /sys/class/net/erouter0/address)
         ;;
     -cip)
 	echo $(ip addr show brlan0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')

@@ -41,10 +41,12 @@ typedef struct
 // TODO: Fill with correct interfaces and bridges
 static ifmap_t  ifmap[] = {
    // idx   cloud-ifname     dev-ifname  bridge    gre-br            vlan     description
-    { 1,    "bhaul-ap-24",   "wlan3",    "brlan0", "brlan_bhaul_24", 0 },  // 2G Backhaul
-    { 1,    "bhaul-ap-50",   "wlan2",    "brlan0", "brlan_bhaul_5",  0 },  // 5G Backhaul
-    { 2,    "home-ap-24",    "wlan1",    "brlan0", NULL,             0 },  // 2G User SSID
-    { 2,    "home-ap-50",    "wlan0",    "brlan0", NULL,             0 },  // 5G User SSID
+   // { 3,    "wifi4",   "wifi4",    "brlan0", "wifi4", 0 },  // 2G onboard
+   // { 3,    "wifi5",   "wifi5",    "brlan0", "wifi5",  0 },  // 5G onboard
+   // { 1,    "wifi2",   "wifi2",    "brlan0", "wifi2", 0 },  // 2G Backhaul
+    { 1,    "wifi3",   "wifi3",    "brlan0", "wifi3",  0 },  // 5G Backhaul
+   // { 2,    "wifi0",    "wifi0",    "brlan0",  NULL,            0 },  // 2G User SSID
+    { 2,    "wifi1",    "wifi1",    "brlan0",  NULL,            0 },  // 5G User SSID
     { 0,    NULL,            NULL,       NULL,     NULL,             0 }
 };
 
