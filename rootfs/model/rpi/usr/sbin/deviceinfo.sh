@@ -17,49 +17,70 @@
 #See the License for the specific language governing permissions and
 #limitations under the License.
 
+device_type=`cat /version.txt | grep imagename | cut -d':' -f2 | cut -d'-' -f3`
 case "$1" in
 
     -mo)
-        echo "RTROM01-2G"
+        if [ $device_type == "extender" ]; then
+            echo "RTROM01-2G-EX"
+        else
+            echo "RTROM01-2G"
+        fi
         ;;
     -sn)
-        echo "1234567890"
+        if [ $device_type == "extender" ]; then
+            echo "9876543210"
+        else
+            echo "1234567890"
+        fi
         ;;
     -fw)
         echo "rdk-yocto-rpi"
         ;;
     -cmac)
-	echo $(cat /sys/class/net/erouter0/address)
+        if [ $device_type == "extender" ]; then
+            echo $(cat /sys/class/net/eth0/address)
+        else
+            echo $(cat /sys/class/net/erouter0/address)
+        fi
         ;;
     -cip)
-	echo $(ip addr show brlan0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
+        echo $(ip addr show brlan0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
         ;;
     -cipv6)
         echo ""
         ;;
     -emac)
-	echo $(cat /sys/class/net/erouter0/address)
+        if [ $device_type == "extender" ]; then
+            echo $(cat /sys/class/net/br-wan/address)
+        else
+            echo $(cat /sys/class/net/erouter0/address)
+        fi
         ;;
     -eip)
-	echo $(ip addr show erouter0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
+        if [ $device_type == "extender" ]; then
+            echo $(ip addr show br-wan | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
+        else
+            echo $(ip addr show erouter0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
+        fi
         ;;
     -eipv6)
         echo ""
         ;;
     -lmac)
-	echo $(cat /sys/class/net/brlan0/address)
+        echo $(cat /sys/class/net/brlan0/address)
         ;;
     -lip)
-	echo $(ip addr show brlan0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
+        echo $(ip addr show brlan0 | grep 'inet ' | awk '{print $2}' | cut -f1 -d'/')
         ;;
     -lipv6)
         echo ""
         ;;
     -ms)
-	echo "Full"
+        echo "Full"
         ;;
     -mu)
-	echo "ssl:wildfire.plume.tech:443"
+        echo "ssl:wildfire.plume.tech:443"
         ;;
 
     *)

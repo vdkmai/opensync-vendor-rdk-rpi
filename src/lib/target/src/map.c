@@ -45,7 +45,7 @@ static ifmap_t  ifmap[] = {
    // { 3,    "wifi5",   "wifi5",    "brlan0", "wifi5",  0 },  // 5G onboard
    // { 1,    "wifi2",   "wifi2",    "brlan0", "wifi2", 0 },  // 2G Backhaul
     { 1,    "wifi3",   "wifi3",    "brlan0", "wifi3",  0 },  // 5G Backhaul
-   // { 2,    "wifi0",    "wifi0",    "brlan0",  NULL,            0 },  // 2G User SSID
+    { 2,    "wifi0",    "wifi0",    "brlan0",  NULL,            0 },  // 2G User SSID
     { 2,    "wifi1",    "wifi1",    "brlan0",  NULL,            0 },  // 5G User SSID
     { 0,    NULL,            NULL,       NULL,     NULL,             0 }
 };
